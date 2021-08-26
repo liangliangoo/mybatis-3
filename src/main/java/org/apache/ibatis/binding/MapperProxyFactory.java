@@ -24,11 +24,14 @@ import org.apache.ibatis.binding.MapperProxy.MapperMethodInvoker;
 import org.apache.ibatis.session.SqlSession;
 
 /**
+ * MapperProxyFactory类主要用于创建实现了mapperInterface接口的MapperProxy的代理对象
  * @author Lasse Voss
  */
 public class MapperProxyFactory<T> {
 
+  //mapperInterface 就是被代理的类
   private final Class<T> mapperInterface;
+  //key 是 mapper 中的方法 ， value   方法具体执行的代理对象  这是为什么Mapper不需要写具体的实现类的原因
   private final Map<Method, MapperMethodInvoker> methodCache = new ConcurrentHashMap<>();
 
   public MapperProxyFactory(Class<T> mapperInterface) {

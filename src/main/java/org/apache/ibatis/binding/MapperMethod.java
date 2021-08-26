@@ -39,6 +39,9 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 
 /**
+ * MapperMethod类中保存着Mapper接口中定义的所有方法的信息，
+ * 以及该方法对应的SQL语句的信息，
+ * MapperMethod是Method到sql映射的桥梁。
  * @author Clinton Begin
  * @author Eduardo Macarron
  * @author Lasse Voss

@@ -27,13 +27,16 @@ import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSession;
 
 /**
+ * 这个类就相当与一个register 只要是注册表就少不了维护这张表的操作，
  * @author Clinton Begin
  * @author Eduardo Macarron
  * @author Lasse Voss
  */
 public class MapperRegistry {
 
+  //定义mybatis的全局配置
   private final Configuration config;
+  //维护mapper和mapperProxyFactory的关系
   private final Map<Class<?>, MapperProxyFactory<?>> knownMappers = new HashMap<>();
 
   public MapperRegistry(Configuration config) {

@@ -27,7 +27,7 @@ import org.apache.ibatis.reflection.ExceptionUtil;
 
 /**
  * PreparedStatement proxy to add logging.
- *
+ * “处理预编译SQL    日志打印”
  * @author Clinton Begin
  * @author Eduardo Macarron
  *
