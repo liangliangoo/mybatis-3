@@ -38,6 +38,7 @@ import org.apache.ibatis.type.TimeOnlyTypeHandler;
 import org.apache.ibatis.type.TypeHandler;
 
 /**
+ * 处理数据库字段类型和JAVA类型的映射
  * @author Clinton Begin
  * @author Adam Gent
  */

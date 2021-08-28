@@ -41,6 +41,7 @@ public class SqlRunner {
 
   private final Connection connection;
   private final TypeHandlerRegistry typeHandlerRegistry;
+  // 自增返回
   private boolean useGeneratedKeySupport;
 
   public SqlRunner(Connection connection) {
@@ -72,11 +73,12 @@ public class SqlRunner {
    * Executes a SELECT statement that returns multiple rows.
    *
    * @param sql  The SQL
-   * @param args The arguments to be set on the statement.
+   * @param args The arguments to be set on the statement.   sql中的参数
    * @return The list of rows expected.
    * @throws SQLException If statement preparation or execution fails
    */
   public List<Map<String, Object>> selectAll(String sql, Object... args) throws SQLException {
+    //实际开发过程中都是通过PreparedStatement 预编译 sql中的传入的参数都是？？？？？？？没有被实际解析
     try (PreparedStatement ps = connection.prepareStatement(sql)) {
       setParameters(ps, args);
       try (ResultSet rs = ps.executeQuery()) {
@@ -185,6 +187,7 @@ public class SqlRunner {
     }
   }
 
+  //将SQL中的动态参数，传入SQL   将？变为实际值
   private void setParameters(PreparedStatement ps, Object... args) throws SQLException {
     for (int i = 0, n = args.length; i < n; i++) {
       if (args[i] == null) {

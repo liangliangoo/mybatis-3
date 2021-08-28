@@ -30,7 +30,7 @@ import org.apache.ibatis.session.Configuration;
  * the value from).
  * <p>
  * Can also have additional parameters that are created by the dynamic language (for loops, bind...).
- *
+ * 处理动态SQL中的占位符#{id}
  * @author Clinton Begin
  */
 public class BoundSql {

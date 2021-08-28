@@ -46,7 +46,7 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
   //方法句柄对象的构造函数
   private static final Constructor<Lookup> lookupConstructor;
   private static final Method privateLookupInMethod;
-  //session
+  //每一个mapperProxy都维护了sqlSession
   private final SqlSession sqlSession;
   //被代理的接口
   private final Class<T> mapperInterface;

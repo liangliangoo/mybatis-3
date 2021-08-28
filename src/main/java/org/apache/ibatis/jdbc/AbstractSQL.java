@@ -471,7 +471,9 @@ public abstract class AbstractSQL<T> {
   }
 
   private static class SafeAppendable {
+    // Appendable 处理char    线程不安全
     private final Appendable appendable;
+    //保证安全操作
     private boolean empty = true;
 
     public SafeAppendable(Appendable a) {
@@ -497,12 +499,18 @@ public abstract class AbstractSQL<T> {
 
   }
 
+  /**
+   * 这个类主要为了处理SQL语句
+   */
   private static class SQLStatement {
 
     public enum StatementType {
       DELETE, INSERT, SELECT, UPDATE
     }
 
+    /**
+     * 处理limit offset 相关的SQL限制
+     */
     private enum LimitingRowsStrategy {
       NOP {
         @Override
@@ -537,6 +545,7 @@ public abstract class AbstractSQL<T> {
 
     }
 
+    //处理一些内外连接什么的
     StatementType statementType;
     List<String> sets = new ArrayList<>();
     List<String> select = new ArrayList<>();
