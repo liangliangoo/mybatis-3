@@ -33,6 +33,9 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.transaction.Transaction;
 
 /**
+ * 对应的是Mybatis 中的二级缓存  是存储在内存中的，
+ * 每一个mapper ===> nameSpace对应一个二级缓存，他们是独立的，
+ * 每一个session共享二级缓存
  * @author Clinton Begin
  * @author Eduardo Macarron
  */

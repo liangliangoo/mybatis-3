@@ -55,7 +55,10 @@ public abstract class BaseExecutor implements Executor {
   protected Executor wrapper;
 
   protected ConcurrentLinkedQueue<DeferredLoad> deferredLoads;
+  // 以及缓存的核心   map
+  //数据库中只有有事务提交或则回滚都会删除一级缓存
   protected PerpetualCache localCache;
+  // 缓存存储过程的输出参数
   protected PerpetualCache localOutputParameterCache;
   protected Configuration configuration;
 
